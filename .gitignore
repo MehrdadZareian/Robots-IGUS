@@ -19,3 +19,9 @@ artifacts/
 *.user
 *.userosscache
 *.sln.docstates
+src/Robots.Grasshopper/Robots.Grasshopper.csproj
+src/Robots.Grasshopper/Robots.Grasshopper.csproj
+src/Robots.Grasshopper/Properties/launchSettings.json
+src/Robots.Grasshopper/Robots.Grasshopper.csproj
+src/Robots.Grasshopper/Robots.Grasshopper.csproj
+*.csproj
