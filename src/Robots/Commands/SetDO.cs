@@ -78,10 +78,11 @@ public class SetDO(int @do, bool value) : Command
     
     string CodeIgus(RobotSystem robotSystem, Target target)
     {
-       var number = GetNumber(robotSystem);
+       //var number = GetNumber(robotSystem);
+        //var io = robotSystem.IO;
 
         string textValue = Value ? "True" : "False";
-        return $"<Output Channel=\"DOut{number}\" State=\"{textValue}\" />";
+        return $"<Output Channel=\"DOut{DO}\" State=\"{textValue}\" />";
     }
 
     string GetNumber(RobotSystem robotSystem)

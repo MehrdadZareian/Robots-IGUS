@@ -131,11 +131,13 @@ class IgusPostProcessor : IPostProcessor
                         var jointTarget = (JointTarget)programTarget.Target;
                         double[] joints = jointTarget.Joints;
                         joints = joints.Map((x, i) => _system.MechanicalGroups[group].RadianToDegree(x, i));
-                        var speed_percent = (target.Speed.RotationSpeed * 180.0 / PI)*(100.0/45.0);
+                        var speed_percent = (target.Speed.RotationSpeed * 180.0 / PI)*(100.0/180.0);
+                        if (speed_percent > 100)
+                            speed_percent = 100;
                         move_text = $"<Joint AbortCondition=\"False\" Nr=\"{line_counter}\" Source=\"Numerical\" velPercent=\"{speed_percent}\" acc=\"90\" smooth=\"0\" " +
-                            $"a1=\"{joints[0]:0.000}\" a2=\"{joints[1]:0.000}\" a3=\"{joints[2]:0.000}\" " +
-                            $"a4=\"{joints[3]:0.000}\" a5=\"{joints[4]:0.000}\" a6=\"{joints[5]:0.000}\"" +
-                            $" e1=\"0\" e2=\"0\" e3=\"0\" Descr=\"\" />";
+                        $"a1=\"{joints[0]:0.000}\" a2=\"{joints[1]:0.000}\" a3=\"{joints[2]:0.000}\" " +
+                        $"a4=\"{joints[3]:0.000}\" a5=\"{joints[4]:0.000}\" a6=\"{joints[5]:0.000}\"" +
+                        $" e1=\"0\" e2=\"0\" e3=\"0\" Descr=\"\" />";
                     }
                     else
                     {
